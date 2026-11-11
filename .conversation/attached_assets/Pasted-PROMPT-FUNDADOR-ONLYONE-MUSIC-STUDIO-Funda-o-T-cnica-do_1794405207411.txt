@@ -1,0 +1,177 @@
+PROMPT FUNDADOR — ONLYONE MUSIC STUDIO
+
+Fundação Técnica do Projecto — F0.1
+
+1. Identidade do projecto
+
+Nome oficial: ONLYONE MUSIC STUDIO
+
+Categoria: Estúdio musical inteligente, interactivo e colaborativo.
+
+Descrição:
+
+O ONLYONE MUSIC STUDIO é uma plataforma de criação musical que permite ao utilizador compor, gravar, organizar, transformar e produzir música num ambiente interactivo, com instrumentos virtuais, captação vocal em tempo real e assistência de inteligência artificial.
+
+A plataforma não deve ser concebida como um simples gerador de músicas por texto. O seu propósito é funcionar como um verdadeiro estúdio musical digital, onde o utilizador mantém o controlo criativo.
+
+2. Objectivo desta primeira tarefa
+
+Construir exclusivamente a fundação técnica da aplicação.
+
+Não desenvolver ainda todas as funcionalidades musicais.
+
+A prioridade é estabelecer uma arquitectura limpa, modular, expansível, testável e preparada para processamento de áudio em tempo real.
+
+3. Tecnologias iniciais
+
+Utilizar como base:
+
+- React para a interface.
+- TypeScript para implementação.
+- Vite como ferramenta de desenvolvimento e construção.
+- Web Audio API como tecnologia principal do futuro motor de áudio.
+- AudioWorklet para processamento personalizado de áudio.
+- MediaDevices API para futura captação de microfone.
+- MediaRecorder para futura gravação.
+- IndexedDB para futura persistência local.
+- Git e GitHub para controlo de versões.
+
+Não adicionar dependências desnecessárias.
+
+Antes de escolher bibliotecas adicionais, explicar a sua finalidade e justificar a necessidade.
+
+4. Arquitectura modular
+
+Preparar uma estrutura que permita desenvolver separadamente:
+
+- AudioEngine: reprodução e processamento de áudio.
+- VoiceEngine: captação e processamento vocal.
+- InstrumentEngine: instrumentos e sintetizadores.
+- MusicCompositionEngine: ritmo, notas, compassos e composição.
+- AIEngine: futura assistência inteligente.
+- LiveInteractionEngine: alterações durante a reprodução.
+- ProjectEngine: gestão e persistência de projectos.
+- ExportEngine: futura mistura e exportação.
+
+Estes módulos devem ter responsabilidades distintas.
+
+Não criar módulos que apenas aparentem implementar funcionalidades ainda inexistentes.
+
+5. Interface inicial
+
+Criar uma interface moderna, profissional, minimalista e adequada a um estúdio musical.
+
+A interface deverá prever:
+
+- Barra superior com nome do projecto.
+- Área central de composição.
+- Espaço para pistas musicais.
+- Painel de instrumentos.
+- Painel vocal.
+- Controlos de reprodução.
+- Indicadores de BPM e compassos.
+- Área reservada ao assistente inteligente.
+
+A interface pode apresentar funcionalidades futuras como áreas identificadas como não disponíveis nesta fase.
+
+Não apresentar botões fictícios como se executassem operações reais.
+
+6. Requisitos de engenharia
+
+- Utilizar TypeScript com verificações rigorosas.
+- Separar componentes visuais da lógica musical.
+- Evitar concentrar toda a aplicação num único ficheiro.
+- Criar interfaces e contratos claros entre módulos.
+- Preparar tratamento de erros.
+- Criar testes automatizados.
+- Garantir que a aplicação pode iniciar e executar sem erros.
+- Documentar decisões técnicas.
+- Evitar dados de demonstração que possam ser confundidos com dados reais.
+- Não introduzir autenticação ou pagamentos sem especificação própria.
+
+7. Requisitos específicos do futuro motor de áudio
+
+A arquitectura deve permitir que o motor de áudio funcione independentemente da interface React.
+
+A reprodução não deverá depender de actualizações da interface.
+
+Preparar os contratos necessários para:
+
+- Iniciar e parar o motor.
+- Gerir pistas.
+- Controlar volume e silêncio.
+- Agendar eventos musicais.
+- Trabalhar com BPM e compassos.
+- Receber fontes de áudio.
+- Encaminhar áudio para efeitos e saída.
+
+Não afirmar que existe processamento profissional em tempo real enquanto essa capacidade não estiver efectivamente implementada e testada.
+
+8. Restrições desta fase
+
+NÃO implementar nesta primeira tarefa:
+
+- Geração musical por IA.
+- Harmonização automática.
+- Masterização automática.
+- Conversão de voz em instrumentos.
+- Sistema completo de instrumentos virtuais.
+- Contas de utilizador.
+- Sistema de pagamentos.
+- Aplicação Android ou desktop nativa.
+- Serviços externos de IA.
+
+Estas funcionalidades pertencem a fases posteriores.
+
+9. Documentação obrigatória
+
+Criar:
+
+- README.md com descrição, instalação e execução.
+- ARCHITECTURE.md com arquitectura e responsabilidades.
+- ROADMAP.md com fases de desenvolvimento.
+- TECHNICAL_DECISIONS.md com decisões e alternativas.
+- TESTING.md com instruções e resultados dos testes.
+
+10. Método de execução
+
+Antes de modificar ficheiros:
+
+1. Inspeccionar o ambiente de trabalho.
+2. Identificar ficheiros e configurações existentes.
+3. Apresentar a estrutura proposta.
+4. Identificar riscos e dependências.
+5. Explicar quais ficheiros serão criados ou alterados.
+
+Depois da autorização para implementação:
+
+1. Executar a fundação por etapas pequenas.
+2. Validar cada etapa.
+3. Executar os testes.
+4. Corrigir os erros encontrados.
+5. Apresentar evidências verificáveis.
+
+Não declarar uma funcionalidade concluída apenas porque o respectivo código foi escrito.
+
+11. Relatório final obrigatório
+
+Apresentar:
+
+- Estrutura final de pastas.
+- Tecnologias e versões utilizadas.
+- Ficheiros criados e modificados.
+- Funcionalidades efectivamente implementadas.
+- Funcionalidades ainda não implementadas.
+- Comandos para executar a aplicação.
+- Testes executados e respectivos resultados.
+- Problemas conhecidos.
+- Riscos técnicos.
+- Próximas recomendações.
+
+12. Regra fundamental
+
+O ONLYONE MUSIC STUDIO deverá ser construído como um produto de engenharia de software, não como uma demonstração visual.
+
+Priorizar arquitectura, estabilidade, qualidade de áudio futura, modularidade, segurança e capacidade de evolução.
+
+Não avançar para fases seguintes sem validação da fase actual.

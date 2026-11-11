@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "ONLYONE MUSIC STUDIO"
+description = "A modular digital music studio foundation for composing, recording, and producing music while keeping the creator in control. The F0.1 build establishes the studio interface, strict TypeScript structure, audio contracts, and technical documentation without claiming unfinished audio or AI features."
+version = "1.0.0"
+id = "artifacts/onlyone-music-studio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18113
+
+[services.development]
+run = "pnpm --filter @workspace/onlyone-music-studio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/onlyone-music-studio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/onlyone-music-studio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18113"
+BASE_PATH = "/"

@@ -1,44 +1,47 @@
-# [Project name]
+# ONLYONE MUSIC STUDIO
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+An extensible browser-based music studio; F0.1 establishes the studio interface and audio-engine contracts without claiming unfinished playback or recording features.
 
 ## Run & Operate
 
+- `pnpm --filter @workspace/onlyone-music-studio run dev` — run the studio web app
+- `pnpm --filter @workspace/onlyone-music-studio run typecheck` — strict TypeScript check
+- `pnpm --filter @workspace/onlyone-music-studio run test` — run audio-domain unit tests
+- `pnpm --filter @workspace/onlyone-music-studio run build` — build the studio web app
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- The studio currently has no backend or database dependency.
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Studio: React, Vite, strict TypeScript, Vitest
+- Shared API server: Express 5 (not used by the studio in F0.1)
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/onlyone-music-studio/` — studio app and F0.1 technical documents
+- `artifacts/onlyone-music-studio/src/modules/audio/` — audio contracts and validation
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The future audio engine is defined by a UI-independent contract; there is no audio implementation yet.
+- No backend, authentication, payments, or external AI service is part of F0.1.
+- Future music capabilities are not represented as working modules until implemented and tested.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The studio will let creators compose, record, organize, transform, and produce music while keeping control of the creative process. F0.1 provides the honest workspace shell and technical base only.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+Follow the attached F0.1 scope: do not add unnecessary dependencies or claim unavailable audio/AI functionality.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Browser playback needs an explicit user gesture; microphone access requires browser permission.
+- Check `artifacts/onlyone-music-studio/TESTING.md` for the F0.1 test boundaries.
 
 ## Pointers
 
