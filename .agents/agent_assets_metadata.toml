@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "BqDmqBgrsilc3CwnUF0Mt"
+uri = "file://.local/onlyone-f01a-audit/ONLYONE-F0.1-A-audit.zip"
+type = "unspecified"
+title = "ZIP de auditoria F0.1-A"
+description = "Código, documentação, condições autorizadas e evidências de verificação para auditoria independente."
+logical_id = "a74de9cc-ec34-47b0-9e29-64e4645d56c7"
+content_hash = "sha256:e6f14801be4ea72310ad6397145a43332afbbefc7ff599c2cf9390181b3830d0"
+size = 79807
+mtime_ms = 1794408746284
+storage_uri = "gcs://replit-rams-assets-worf/rams/assets/repl:46991ddf-3b0d-4a46-8eb2-d7ddbafd098c/a74de9cc-ec34-47b0-9e29-64e4645d56c7/4087cbae-416c-4988-8111-0356d5fa690e"
+storage_version_token = "1794408759484948"
+content_type = "application/octet-stream"
