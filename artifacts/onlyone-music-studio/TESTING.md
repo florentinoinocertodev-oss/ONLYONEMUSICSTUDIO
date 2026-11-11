@@ -1,33 +1,41 @@
-# Testing
+# Testes e verificações
 
-## Automated checks
+## Comandos automatizados
 
-Run these commands from the workspace root:
+Executar a partir da raiz do workspace:
 
 ```sh
 pnpm --filter @workspace/onlyone-music-studio run typecheck
 pnpm --filter @workspace/onlyone-music-studio run test
 pnpm --filter @workspace/onlyone-music-studio run build
+pnpm run typecheck
 ```
 
-The F0.1 unit tests cover valid and invalid tempo, normalized track gain, and
-time-signature inputs. These are pure TypeScript checks and do not claim to test
-browser audio, microphone permissions, recording, or real-time performance.
+Os testes do registo verificam a lista de módulos, a indisponibilidade de todos
+os motores e a distinção entre contrato definido e implementação disponível. Os
+testes de validadores de BPM, ganho e compasso já existiam; não validam o modelo
+de projecto.
 
-## Manual preview checks
+## Limites dos testes
 
-- The root route opens the studio workspace.
-- No audio or recording action is presented as operational in F0.1.
-- Future capabilities are visibly marked unavailable.
-- The interface remains usable at narrow and wide viewport sizes.
+Estes comandos não verificam reprodução de áudio, permissões do microfone,
+gravação, persistência, exportação ou latência em tempo real. A validação do
+modelo de projecto pertence à F0.1-C e não foi iniciada.
 
-## F0.1 results
+## Resultados desta entrega
 
-- `pnpm --filter @workspace/onlyone-music-studio run typecheck` — passed.
-- `pnpm --filter @workspace/onlyone-music-studio run test` — passed; 14 tests.
-- `PORT=18113 BASE_PATH=/ pnpm --filter @workspace/onlyone-music-studio run build` — passed.
-- `pnpm run typecheck` — passed for all workspace packages.
-- Preview checked at desktop and mobile viewport sizes.
+- `pnpm --filter @workspace/onlyone-music-studio run typecheck` — passou.
+- `pnpm --filter @workspace/onlyone-music-studio run test` — passou; 2 ficheiros
+  de teste e 17 testes.
+- `PORT=18113 BASE_PATH=/ pnpm --filter @workspace/onlyone-music-studio run build`
+  — passou; Vite 7.3.7.
+- `pnpm run typecheck` — passou para as bibliotecas e os artefactos do
+  workspace.
+- Pesquisa de imports de React e APIs do navegador em `src/engines/` — sem
+  ocorrências.
+- Pesquisa de uso de Zod em `src/` — sem ocorrências.
+- Pré-visualização no navegador — carregou sem erros da aplicação; a homepage
+  foi mantida sem alterações.
 
-These checks validate the F0.1 interface and pure input-validation code. They do
-not validate real-time audio, microphone access, recording, or browser latency.
+Estes resultados não validam reprodução de áudio, gravação, persistência,
+exportação nem o modelo de projecto. A F0.1-B não foi iniciada.

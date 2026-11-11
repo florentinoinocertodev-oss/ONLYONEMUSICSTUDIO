@@ -1,53 +1,51 @@
-# Architecture
+# Arquitectura
 
-## F0.1 boundary
+## Limites da F0.1-A
 
-The React interface is a presentation layer. It does not own or simulate audio
-playback. The `modules/audio` directory contains the public TypeScript contract
-and input validation only; it contains no engine implementation or browser
-audio side effects.
+A interface React existente é uma camada de apresentação e não executa nem
+simula reprodução de áudio. A F0.1-A acrescenta apenas um registo declarativo
+dos módulos planeados. Não cria motores funcionais, não altera a interface e
+não implementa persistência.
 
 ```text
 src/
-  App.tsx                     Application entry and studio workspace
+  engines/
+    module-registry.ts       Identificadores e disponibilidade dos módulos
+    module-registry.test.ts  Verificação do registo
   modules/
     audio/
-      audio-contracts.ts      UI-independent future engine boundary
-      audio-validation.ts     Pure validation of audio-domain inputs
+      audio-contracts.ts     Contrato independente da interface
+      audio-validation.ts    Validadores de parâmetros de áudio existentes
       audio-validation.test.ts
 ```
 
-## Planned responsibility boundaries
+## Registo dos módulos
 
-These are future architectural areas, not implemented modules in F0.1:
+`engines/module-registry.ts` identifica AudioEngine, VoiceEngine,
+InstrumentEngine, MusicCompositionEngine, AIEngine, LiveInteractionEngine,
+ProjectEngine e ExportEngine. Todos estão marcados como indisponíveis. O campo
+de estado do contrato apenas indica se existe um contrato TypeScript; não
+representa capacidade operacional.
 
-- **AudioEngine** — browser audio lifecycle, track graph, event scheduling,
-  effects routing, and output.
-- **VoiceEngine** — microphone permission, capture, monitoring, and vocal
-  processing.
-- **InstrumentEngine** — virtual instruments and synthesizers.
-- **MusicCompositionEngine** — notes, rhythm, bars, and composition data.
-- **AIEngine** — optional creative assistance, isolated from the audio runtime.
-- **LiveInteractionEngine** — safe parameter changes during playback.
-- **ProjectEngine** — project state, versioning, and persistence.
-- **ExportEngine** — mix rendering and file export.
+Neste estado, só o AudioEngine tem um contrato TypeScript definido. Os restantes
+módulos não têm contratos detalhados nem implementações. Não há imports de React
+ou APIs do navegador em `src/engines/`.
 
-Each future area should be added only with working behavior and tests. A UI
-placeholder or a type declaration is not evidence that a capability exists.
+## Contrato do motor de áudio
 
-## Audio engine contract
+`modules/audio/audio-contracts.ts` descreve uma futura fronteira para ciclo de
+vida, pistas, volume, silêncio, agendamento de eventos, BPM, compassos e
+encaminhamento de fontes e efeitos. O contrato não instancia um motor. Uma
+implementação futura deverá controlar o próprio ciclo de áudio e não depender
+das actualizações React para reproduzir som.
 
-`AudioEngine` is defined without React dependencies. Implementations must own
-their audio lifecycle, expose snapshots rather than requiring React renders to
-drive playback, and be started from explicit user actions. Audio nodes and
-scheduled musical events enter through a narrow interface.
+Não foram implementados AudioContext, AudioWorklet, captação de microfone,
+MediaRecorder, IndexedDB ou exportação de áudio. Os validadores de BPM, ganho e
+compasso que já existiam não validam um modelo de projecto.
 
-F0.1 does not implement an `AudioContext`, microphone capture, `AudioWorklet`,
-MediaRecorder, IndexedDB, or audio export.
+## Tratamento de erros
 
-## Error handling
-
-The audio boundary defines `AudioEngineError` with a finite error-code union so
-future engine failures can be distinguished without depending on UI-specific
-error types. Browser permission and support failures must be surfaced to the UI
-explicitly when those capabilities are implemented.
+O contrato de áudio inclui `AudioEngineError` e um conjunto limitado de códigos
+de erro. É uma definição de tipos, não um mecanismo operacional. Quando as
+capacidades correspondentes forem implementadas, erros de suporte e permissões
+do navegador deverão ser comunicados explicitamente.

@@ -1,44 +1,43 @@
-# Roadmap
+# ROADMAP — roteiro oficial do produto
 
-## F0.1 — Technical foundation
+Este ficheiro é o roteiro oficial. Não existe um ficheiro alternativo de tarefas
+para o agente nesta entrega.
 
-- Establish the React, Vite, and strict TypeScript application.
-- Build the studio workspace shell and identify unavailable features honestly.
-- Define the UI-independent audio-engine contract and test its input validation.
-- Document architecture, decisions, and test instructions.
+## F0.1-A — Estrutura e contratos
 
-## F0.2 — Audio lifecycle
+- Definir a estrutura técnica, os tipos e os contratos autorizados.
+- Registar os módulos previstos e assinalar como indisponíveis os que não estão
+  implementados.
+- Documentar arquitectura, decisões técnicas e instruções de verificação.
+- Não alterar a homepage, os estilos, os componentes visuais ou a estrutura da
+  página.
+- Não iniciar a F0.1-B nem qualquer outra fase.
 
-- Implement browser audio initialization and explicit start/stop behavior.
-- Handle suspended contexts, browser support, lifecycle errors, and cleanup.
-- Add focused browser-level tests before claiming reliable playback.
+## F0.1-B — Entrega independente
 
-## F0.3 — Composition model
+Esta entrega é independente da F0.1-A e depende de autorização própria. O seu
+escopo não está definido neste roteiro; não foi iniciada.
 
-- Define notes, rhythm, tempo, time signatures, bars, and track data.
-- Build a timeline from real composition state rather than sample data.
-- Add editing and playback scheduling with measurable test coverage.
+## F0.1-C — Validação do modelo de projecto
 
-## F0.4 — Voice capture
+A validação efectiva do modelo de projecto e os respectivos testes serão
+definidos e implementados numa fase posterior, mediante autorização própria.
+Não foi iniciada.
 
-- Add microphone permission and capture through MediaDevices.
-- Add recording through MediaRecorder and clear permission/error states.
-- Verify capture and cleanup behavior on supported browsers.
+## Trabalho futuro — motores e capacidades do produto
 
-## F0.5 — Instruments and live interaction
+As áreas abaixo são intenções de produto, não funcionalidades disponíveis.
+Cada implementação depende de especificação e autorização próprias:
 
-- Add instruments and synthesizers as independently testable modules.
-- Route track sources through effects and output.
-- Support live changes without making UI updates the timing source.
+- **AudioEngine** — ciclo de vida de áudio, pistas, agendamento, efeitos e saída.
+- **VoiceEngine** — permissões de microfone, captação, monitorização e
+  processamento vocal.
+- **InstrumentEngine** — instrumentos virtuais e sintetizadores.
+- **MusicCompositionEngine** — notas, ritmo, compassos e dados de composição.
+- **LiveInteractionEngine** — alterações de parâmetros durante a reprodução.
+- **ProjectEngine** — estado, versões e persistência local.
+- **ExportEngine** — mistura e exportação de ficheiros.
+- **AIEngine** — assistência criativa opcional, isolada do motor de áudio.
 
-## F0.6 — Projects and export
-
-- Add local project persistence with IndexedDB.
-- Define project recovery and schema evolution.
-- Implement and test mixing and export formats.
-
-## Later — Optional AI assistance
-
-AI assistance, harmonization, mastering, and voice-to-instrument conversion
-remain out of scope until separately specified and validated. They must remain
-optional and must not replace the creator's control.
+Geração musical por IA, harmonização, masterização automática e conversão de voz
+em instrumentos continuam fora do escopo até serem especificadas e autorizadas.

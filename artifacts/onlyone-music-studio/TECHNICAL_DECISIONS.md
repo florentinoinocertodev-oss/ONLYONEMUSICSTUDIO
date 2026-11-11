@@ -1,32 +1,37 @@
-# Technical decisions
+# Decisões técnicas
 
-## React, TypeScript, and Vite
+## React, TypeScript e Vite
 
-Use the workspace's existing React/Vite artifact scaffold with TypeScript
-strictness enabled. This keeps the first phase within the existing toolchain and
-avoids adding a second application framework.
+Manter a estrutura React/Vite existente e o TypeScript em modo rigoroso. A
+F0.1-A não altera a configuração nem introduz uma segunda framework.
 
-## No backend or account system in F0.1
+## Contratos sem motores operacionais
 
-The approved scope is a local browser studio foundation, with no user accounts,
-payments, AI services, or shared project data. The existing API and database
-workspace packages are not used by this artifact.
+Os contratos definem fronteiras futuras, não funcionalidades. O registo de
+módulos mantém todos os motores indisponíveis e separa o estado do contrato do
+estado da implementação.
 
-## Audio boundary without an implementation
+O contrato de áudio permanece independente da interface. Não deve instanciar
+AudioContext nem sugerir que o processamento de áudio está disponível.
 
-Define the engine contract independently of React, but do not instantiate
-`AudioContext` or imply that audio processing is available. This makes the
-future engine boundary explicit while keeping the current product honest.
+## Sem novas dependências
 
-## Minimal added test dependency
+Não foram adicionadas dependências na F0.1-A. A configuração e as dependências
+existentes foram preservadas.
 
-Vitest is the only dependency added for F0.1. It provides an automated runner for
-the pure domain-input validation tests; no component-testing or audio framework
-is added before there is behavior that needs it.
+## Sem alterações visuais
 
-## Browser API constraints
+A homepage, os estilos, os componentes visuais e a estrutura da página foram
+mantidos sem alterações. A identidade visual será tratada numa fase própria.
 
-Audio playback must begin from a user gesture, microphone access requires
-permission, and low-latency behavior varies by browser and device. These
-constraints belong in the implementation and validation of later audio phases,
-not in claims about the F0.1 interface.
+## Fases independentes
+
+A F0.1-A não autoriza a F0.1-B nem outras fases. A validação efectiva do modelo
+de projecto pertence à F0.1-C e não foi iniciada nesta entrega.
+
+## Restrições das APIs do navegador
+
+A reprodução de áudio requer uma acção explícita do utilizador, a captação de
+microfone depende de permissões e a latência varia conforme o navegador e o
+dispositivo. Estas restrições serão tratadas quando as funcionalidades forem
+especificadas e autorizadas; não são funcionalidades da F0.1-A.

@@ -1,0 +1,1 @@
+- [ONLYONE approval and audit gates](onlyone-engineering-workflow.md) — the owner authorizes, the architect defines and independently audits, and the executor implements only authorized work.
